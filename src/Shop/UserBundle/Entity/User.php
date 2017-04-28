@@ -39,7 +39,7 @@ class User extends BaseUser
      *
      * @ORM\Column(type="integer", name="money")
      */
-    private $moeny;
+    private $money = 700;
 
     public function __construct()
     {
