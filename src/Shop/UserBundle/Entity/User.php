@@ -34,6 +34,13 @@ class User extends BaseUser
      */
     private $updatedAt;
 
+    /**
+     * @var Integer
+     *
+     * @ORM\Column(type="integer", name="money")
+     */
+    private $moeny;
+
     public function __construct()
     {
         parent::__construct();
