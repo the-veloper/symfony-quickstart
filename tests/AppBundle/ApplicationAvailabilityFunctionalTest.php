@@ -1,9 +1,9 @@
 <?php
 /**
- * (c) Ismael Trascastro <i.trascastro@gmail.com>
+ * (c) Ismael Shop <i.Shop@gmail.com>
  *
- * @link        http://www.ismaeltrascastro.com
- * @copyright   Copyright (c) Ismael Trascastro. (http://www.ismaeltrascastro.com)
+ * @link        http://www.ismaelShop.com
+ * @copyright   Copyright (c) Ismael Shop. (http://www.ismaelShop.com)
  * @license     MIT License - http://en.wikipedia.org/wiki/MIT_License
  *
  * For the full copyright and license information, please view the LICENSE
@@ -41,7 +41,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
     public function testRoleUserPages($url)
     {
         $client = static::createClient(array(), array(
-            'PHP_AUTH_USER' => 'itrascastro',
+            'PHP_AUTH_USER' => 'iShop',
             'PHP_AUTH_PW'   => '1234',
         ));
         $client->request('GET', $url);

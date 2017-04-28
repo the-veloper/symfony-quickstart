@@ -1,9 +1,9 @@
 <?php
 /**
- * (c) Ismael Trascastro <i.trascastro@gmail.com>
+ * (c) Ismael Shop <i.Shop@gmail.com>
  *
- * @link        http://www.ismaeltrascastro.com
- * @copyright   Copyright (c) Ismael Trascastro. (http://www.ismaeltrascastro.com)
+ * @link        http://www.ismaelShop.com
+ * @copyright   Copyright (c) Ismael Shop. (http://www.ismaelShop.com)
  * @license     MIT License - http://en.wikipedia.org/wiki/MIT_License
  *
  * For the full copyright and license information, please view the LICENSE
@@ -18,7 +18,7 @@ use AppBundle\Entity\Comment;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Trascastro\UserBundle\Entity\User;
+use Shop\UserBundle\Entity\User;
 
 class LoadData implements FixtureInterface
 {
@@ -26,9 +26,9 @@ class LoadData implements FixtureInterface
     {
         $user1 = new User();
         $user1
-            ->setUsername('itrascastro')
+            ->setUsername('iShop')
             ->setPlainPassword('1234')
-            ->setEmail('i.trascastro@gmail.com')
+            ->setEmail('i.Shop@gmail.com')
             ->setRoles(['ROLE_USER'])
             ->setEnabled(true)
         ;

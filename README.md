@@ -31,11 +31,11 @@ Download the installer from [getcomposer.org/download](https://getcomposer.org/d
 ## Creating a new project with Composer
 
   ```
-  php composer.phar create-project itrascastro/symfony-3-base-project my_project_name
+  php composer.phar create-project iShop/symfony-3-base-project my_project_name
   ```
 
 If you did a global install and do not have the composer.phar in that directory run this instead:
 
   ```
-  composer create-project itrascastro/symfony-3-base-project my_project_name
+  composer create-project iShop/symfony-3-base-project my_project_name
   ```
