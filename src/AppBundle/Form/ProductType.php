@@ -18,21 +18,35 @@ class ProductType extends AbstractType
     {
         $builder
           ->add('name')
-          ->add('description', TextareaType::class, array(
-            'attr' => array('class' => 'product-edit-description'),
-          ))
+          ->add(
+            'description',
+            TextareaType::class,
+            array(
+              'attr' => array('class' => 'product-edit-description'),
+            )
+          )
           ->add('price')
           ->add('in_stock')
-          ->add('imageFile', FileType::class, [
-            'data_class' => null,
-            'multiple' => false,
-            'label' => false,
-            'required' => false,
-          ])
-          ->add('categoryName', TextType::class, array(
-            'attr' => array('class' => 'autocomplete', 'data-source' => $options['data']),
-          ))
-        ;
+          ->add(
+            'imageFile',
+            FileType::class,
+            [
+              'data_class' => null,
+              'multiple' => false,
+              'label' => false,
+              'required' => false,
+            ]
+          )
+          ->add(
+            'categoryName',
+            TextType::class,
+            array(
+              'attr' => array(
+                'class' => 'autocomplete',
+                'data-source' => $options['attr']['data-source'],
+              ),
+            )
+          );
     }
 
     /**
@@ -40,8 +54,11 @@ class ProductType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-          'data_class' => 'AppBundle\Entity\Product'
-        ));
+        $resolver->setDefaults(
+          array(
+            'data_class' => 'AppBundle\Entity\Product',
+            'attr' => [],
+          )
+        );
     }
 }

@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function newAction(Request $request)
     {
         $product = new Product();
-        $form = $this->createForm('AppBundle\Form\ProductType', $product, array('data' => $this->generateUrl('category_autocomplete')));
+        $form = $this->createForm('AppBundle\Form\ProductType', $product, array('attr' => ['data-source' => $this->generateUrl('category_autocomplete')]));
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
