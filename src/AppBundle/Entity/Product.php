@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\File;
  * @ORM\Entity
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @Vich\Uploadable
  */
 class Product
 {
