@@ -1,9 +1,9 @@
-$( ".autocomplete" ).autocomplete({
+$(".autocomplete").autocomplete({
     minLength: 2,
     scrollHeight: 220,
     source: function(req, add){
         $.ajax({
-            url:$( ".autocomplete" ).data('source'),
+            url:'/app_dev.php/category/autocomplete',
             type:"get",
             dataType: 'json',
             data: 'term='+req.term,
