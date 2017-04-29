@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Form\CategoryType;
 /**
  * Category controller.
