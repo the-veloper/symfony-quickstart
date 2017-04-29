@@ -5,7 +5,6 @@ namespace Shop\UserBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\Product;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -52,7 +51,7 @@ class User extends BaseUser
 
     /**
      * Many Users have Many Products.
-     * @ORM\ManyToMany(targetEntity="Product")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product")
      * @ORM\JoinTable(name="user_products",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")}
