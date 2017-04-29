@@ -110,9 +110,9 @@ class CartController extends Controller
             $product = $this->getDoctrine()
               ->getRepository('AppBundle:Product')
               ->find($product_id);
-            $current_total += ($product_qty - $products[$product_id]['qty']) * $product->getPrice(
+            $current_total += ($product_qty - $products[$product_id]) * $product->getPrice(
               );
-            $products[$product_id]['qty'] = $product_qty;
+            $products[$product_id] = $product_qty;
 
             $session->set('current_total', $current_total);
             $session->set('products', $products);
