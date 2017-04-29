@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="items">
+        {% for item in products %}
+<table>
+<tr>
+                <td><img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ article.name }}" /></td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.description }}</td>
+                <td>Broika: {{ item.qty }}</td>
+            </tr>
+</table>
+        {% endfor %}
+    </div>
+{% endblock %}

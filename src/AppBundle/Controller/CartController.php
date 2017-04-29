@@ -34,11 +34,15 @@ class CartController extends Controller
         $current_total = $session->get('current_total', 0);
         $product_id = $request->request->get('product_id');
         $product_qty = $request->request->get('product_qty');
+
         $product = $this->getDoctrine()
           ->getRepository('AppBundle:Product')
           ->find($product_id);
+        $products = $session->get('products', []);
+        $products[$product_id] += $product_qty;
         $current_total += $product->getPrice() * $product_qty;
         $session->set('current_total', $current_total);
+        $session->set('products', $products);
 
         return new JsonResponse(
           ['success' => true, 'new_total' => $current_total]
@@ -53,6 +57,25 @@ class CartController extends Controller
      */
     public function viewCartAction(Request $request)
     {
-        return new Response("bla-bla");
+        $session = $request->getSession();
+        $products = $session->get('products', []);
+        $products_renderable = [];
+        foreach ($products as $product_id => $qty) {
+            $products_renderable[$product_id] = [
+              'product' =>
+                $this->getDoctrine()
+                  ->getRepository('AppBundle:Product')
+                  ->find($product_id),
+              'qty' =>
+                $qty,
+            ];
+        }
+
+        return $this->render(
+          'cart/view.html.twig',
+          array(
+            'products' => $products_renderable,
+          )
+        );
     }
 }
