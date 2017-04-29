@@ -76,9 +76,23 @@ class Product
     /**
      * @var int
      *
+     * @ORM\Column(name="weight", type="integer")
+     */
+    private $weight;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="in_stock", type="integer")
      */
     private $in_stock;
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="sticky", type="boolean")
+     */
+    private $sticky;
+
 
     /**
      * Get id
@@ -310,5 +324,53 @@ class Product
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     *
+     * @return Product
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return integer
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * Set sticky
+     *
+     * @param boolean $sticky
+     *
+     * @return Product
+     */
+    public function setSticky($sticky)
+    {
+        $this->sticky = $sticky;
+
+        return $this;
+    }
+
+    /**
+     * Get sticky
+     *
+     * @return boolean
+     */
+    public function getSticky()
+    {
+        return $this->sticky;
     }
 }
