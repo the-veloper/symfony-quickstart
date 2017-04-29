@@ -29,8 +29,11 @@ class UserController extends Controller
      * @Route("/{id}", name="user_view")
      * @Method("GET")
      */
-    public function showAction(UserInterface $user)
+    public function showAction($user_id)
     {
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($user_id);
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
@@ -46,8 +49,11 @@ class UserController extends Controller
      * @Route("/{id}/edit", name="user_edit")
      * @Method("GET")
      */
-    public function editAction(UserInterface $user)
+    public function editAction($user_id)
     {
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($user_id);
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
