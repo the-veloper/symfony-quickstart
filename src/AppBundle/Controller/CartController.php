@@ -141,7 +141,13 @@ class CartController extends Controller
         $session = $request->getSession();
         $current_total = $session->get('current_total', 0);
         $products = $session->get('products', []);
+        $count = 0;
+        if(!empty($products)) {
+            foreach($products as $qty) {
+                $count += $qty;
+            }
+        }
 
-        return new JsonResponse(['success' => true, 'count' => count($products), 'total' => $current_total]);
+        return new JsonResponse(['success' => true, 'count' => count($products), 'total_price' => $current_total, 'total_count' => $count]);
     }
 }
