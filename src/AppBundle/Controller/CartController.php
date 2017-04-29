@@ -39,7 +39,11 @@ class CartController extends Controller
           ->getRepository('AppBundle:Product')
           ->find($product_id);
         $products = $session->get('products', []);
-        $products[$product_id] += $product_qty;
+        if(!empty($products[$product_id])) {
+            $products[$product_id] += $product_qty;
+        } else {
+            $products[$product_id] = $product_qty;
+        }
         $current_total += $product->getPrice() * $product_qty;
         $session->set('current_total', $current_total);
         $session->set('products', $products);
