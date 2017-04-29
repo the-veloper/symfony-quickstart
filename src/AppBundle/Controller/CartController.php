@@ -9,13 +9,16 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Session\Session;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Cart controller.
  *
  * @Route("/cart")
  */
-class CartController
+class CartController extends Controller
 {
     /**
      * Add to cart.
