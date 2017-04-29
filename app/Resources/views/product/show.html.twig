@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{{ product.name }}{% endblock %}
 {% block body %}
     <a href="{{ path('app_index_index') }}"> &laquo;Back </a>
     <div class="product-title">
