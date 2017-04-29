@@ -52,6 +52,13 @@ class Product
     private $categoryId;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="in_stock", type="integer")
+     */
+    private $in_stock;
+
+    /**
      * Get id
      *
      * @return integer
@@ -199,5 +206,29 @@ class Product
     public function getCategoryId()
     {
         return $this->categoryId;
+    }
+
+    /**
+     * Set inStock
+     *
+     * @param integer $inStock
+     *
+     * @return Product
+     */
+    public function setInStock($inStock)
+    {
+        $this->in_stock = $inStock;
+
+        return $this;
+    }
+
+    /**
+     * Get inStock
+     *
+     * @return integer
+     */
+    public function getInStock()
+    {
+        return $this->in_stock;
     }
 }

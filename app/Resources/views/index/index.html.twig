@@ -1,5 +1,23 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>New Project Created</h1>
+    {# total items count #}
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+    <table>
+        {# table body #}
+        {% for article in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td><img src="{{ vich_uploader_asset(article, 'image') }}" alt="{{ article.name }}" /></td>
+                <td>{{ article.price }}</td>
+                <td>{{ article.name }}</td>
+                <td>{{ article.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}

@@ -13,9 +13,18 @@ class IndexController extends Controller
     /**
      * @Route("/", name="app_index_index")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render(':index:index.html.twig');
+        $products = $this->getDoctrine()
+          ->getRepository('AppBundle:Product')
+          ->findAllInStock();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+          $products, /* query NOT result */
+          $request->query->getInt('page', 1)/*page number*/,
+          10    /*limit per page*/
+        );
+        return $this->render(':index:index.html.twig', array('pagination' => $pagination));
     }
 
     /**

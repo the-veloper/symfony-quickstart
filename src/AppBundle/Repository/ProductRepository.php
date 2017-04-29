@@ -10,4 +10,12 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllInStock()
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $qb->where('p.in_stock = 1');
+
+        return $qb;
+    }
 }
