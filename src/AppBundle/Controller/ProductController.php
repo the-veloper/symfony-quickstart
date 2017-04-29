@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -115,6 +116,17 @@ class ProductController extends Controller
         }
 
         return $this->redirectToRoute('product_index');
+    }
+
+    /**
+     * Deletes a Product entity.
+     *
+     * @Route("/{id}", name="product_buy")
+     * @Method("GET")
+     */
+    public function buyAction(Request $request, Product $product)
+    {
+        return new Response("bla-bla");
     }
 
     /**
