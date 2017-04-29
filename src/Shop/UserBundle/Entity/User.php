@@ -46,6 +46,7 @@ class User extends BaseUser
         parent::__construct();
 
         $this->createdAt    = new \DateTime();
+        $this->enabled      = true; //change default
         $this->updatedAt    = $this->createdAt;
     }
 
