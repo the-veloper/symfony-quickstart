@@ -26,4 +26,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/product/*/edit, role: [ROLE_ADMIN, ROLE_EDITOR] }
-        - { path: ^/product/*/new, role: [ROLE_ADMIN, ROLE_EDITOR] }
+        - { path: ^/product/new, role: [ROLE_ADMIN, ROLE_EDITOR] }
