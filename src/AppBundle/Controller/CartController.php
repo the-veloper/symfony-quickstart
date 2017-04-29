@@ -36,7 +36,7 @@ class CartController extends Controller
         $product = $this->getDoctrine()
           ->getRepository('AppBundle:Product')
           ->find($product_id);
-        $current_total += $product->price * $product_qty;
+        $current_total += $product->getPrice() * $product_qty;
         $session->set('current_total', $current_total);
 
         return new JsonResponse(
