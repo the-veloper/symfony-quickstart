@@ -91,7 +91,7 @@ class CartController extends Controller
     /**
      * Remove from cart.
      *
-     * @Route("/change", name="view_cart")
+     * @Route("/change", name="change_cart")
      * @Method("POST")
      */
     public function changeCartAction(Request $request)
