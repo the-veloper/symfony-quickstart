@@ -1,14 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/animate.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/morphext.css') }}" />
-{% endblock %}
 {% block javascripts_begin %}
 <script src="{{ asset('js/product.js') }}"></script>
-{% endblock %}
-{% block javascripts_end %}
-<script src="{{ asset('js/morphext.min.js') }}"></script>
 {% endblock %}
 {% block title %}{{ product.name }}{% endblock %}
 {% block body %}
