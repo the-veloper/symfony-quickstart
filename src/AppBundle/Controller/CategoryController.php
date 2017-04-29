@@ -53,7 +53,7 @@ class CategoryController extends Controller
             $names[] = $entity->getTitle();
         }
 
-        $response = new JsonResponse(['source' => $names]);
+        $response = new JsonResponse($names);
         return $response;
     }
     /**
