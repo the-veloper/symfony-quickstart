@@ -43,7 +43,7 @@ class UserController extends Controller
     /**
      * Edit user
      *
-     * @Route("/{id}/edit", name="user_view")
+     * @Route("/{id}/edit", name="user_edit")
      * @Method("GET")
      */
     public function editAction(UserInterface $user)
