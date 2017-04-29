@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Product;
 use AppBundle\Form\CategoryType;
 /**
  * Category controller.
@@ -60,8 +61,12 @@ class CategoryController extends Controller
     public function showAction(Category $category)
     {
         $deleteForm = $this->createDeleteForm($category);
+        $products = $this->getDoctrine()
+          ->getRepository('AppBundle:Product')
+          ->findByCategory($category->getId());
         return $this->render('category/show.html.twig', array(
           'category' => $category,
+          'products' => $products,
           'delete_form' => $deleteForm->createView(),
         ));
     }
