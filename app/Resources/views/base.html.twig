@@ -49,20 +49,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path('app_index_index') }}">Home</a>
+            <a class="navbar-brand" href="{{ path('app_index_index') }}">Market</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li></li>
                 <li></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <div class="navbar-form navbar-right">
-                    {{ render_esi(controller('UserBundle:HoritzontalLogin:horitzontalLogin', {'route': app.request.get('_route')})) }}
-                </div>
+            <ul class="nav navbar-nav navbar-right" >
+                <li>
+                    <div class="navbar-form navbar-right">
+                      {{ render_esi(controller('UserBundle:HoritzontalLogin:horitzontalLogin', {'route': app.request.get('_route')})) }}
+                 </div>
+                </li>    
             </ul>
         </div><!-- /.navbar-collapse -->
 
@@ -97,7 +99,10 @@
     </div>
     <hr>
     <footer>
-        <p class="text-right">&copy; 2017 Kopirait</p>
+        <p class="text-center">We currently have [] products, in [] categories, traded between [] users. </p> 
+        
+        <p class="text-center">&copy; 2017 Kopirait</p>
+        
     </footer>
 </div> <!-- /container -->
 

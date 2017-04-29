@@ -15,16 +15,16 @@
 
         <div class="item-{{ user.id }}">
             <div class="row item-list {% if loop.index is odd %}odd-item{% endif %}">
-                <p class="description">{{ user.username }}</p>
-                <p class="money">{{ user.money }}</p>
-                <p class="role">{% for role in user.roles %}
+                <a href="{{ path('user_view', { 'id': user.id }) }}"><p class="username">{{ user.username }}</p></a>
+                <p class="money">Money: {{ user.money }}</p>
+                <p class="role">Role: {% for role in user.roles %}
                         {{ role }}
                     {% endfor %}
                 </p>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_username', { 'id': user.id }) }}">Ban {{ user.username }}</button>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_ip', { 'id': user.id }) }}">Ban {{ user.username }} by IP</button>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_edit_red', { 'id': user.id }) }}">Edit Account</button>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_delete', { 'id': user.id }) }}">Delete Account</button>
+                <button class="js-processed-actions btn btn-danger" type="button" data-path="{{ path('user_ban_username', { 'id': user.id }) }}">Ban {{ user.username }}</button>
+                <button class="js-processed-actions btn btn-danger" type="button" data-path="{{ path('user_ban_ip', { 'id': user.id }) }}">Ban {{ user.username }} by IP</button>
+                <button class="js-processed-actions btn btn-warning" type="button" data-path="{{ path('user_edit_red', { 'id': user.id }) }}">Edit Account</button>
+                <button class="js-processed-actions btn btn-danger" type="button" data-path="{{ path('user_delete', { 'id': user.id }) }}">Delete Account</button>
             </div>
         </div>
     {% endfor %}
