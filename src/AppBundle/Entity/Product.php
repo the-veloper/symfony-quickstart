@@ -14,6 +14,12 @@ use Symfony\Component\HttpFoundation\File\File;
  */
 class Product
 {
+    public function __construct()
+    {
+        $this->weight = 0;
+        $this->sticky = false;
+    }
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
