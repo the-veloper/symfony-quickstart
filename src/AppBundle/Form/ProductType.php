@@ -22,7 +22,8 @@ class ProductType extends AbstractType
           ->add('imageFile', FileType::class, [
             'data_class' => null,
             'multiple' => false,
-            'label' => false
+            'label' => false,
+            'required' => false,
           ])
           ->add('categoryId')
         ;
