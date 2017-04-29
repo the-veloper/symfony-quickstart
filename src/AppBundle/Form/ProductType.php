@@ -30,7 +30,7 @@ class ProductType extends AbstractType
             'required' => false,
           ])
           ->add('categoryName', TextType::class, array(
-            'attr' => array('class' => 'autocomplete'),
+            'attr' => array('class' => 'autocomplete', 'data-source' => $options['source']),
           ))
         ;
     }
