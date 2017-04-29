@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ product.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ product.description }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{{ product.price }}</td>
+        </tr>
+        <tr>
+            <th>Stockqty</th>
+            <td>{{ product.in_stock }}</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><img src="{{ vich_uploader_asset(product, 'image') }}" alt="{{ product.name }}" /></td>
+        </tr>
+        <tr>
+            <th>Categoryid</th>
+            <td>{{ product.categoryId }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('app_index_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
