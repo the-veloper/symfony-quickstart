@@ -47,6 +47,7 @@ class User extends BaseUser
 
         $this->createdAt    = new \DateTime();
         $this->enabled      = true; //change default
+        $this->money        = 700;
         $this->updatedAt    = $this->createdAt;
     }
 
@@ -91,5 +92,29 @@ class User extends BaseUser
     public function __toString()
     {
         return $this->username;
+    }
+
+    /**
+     * Set money
+     *
+     * @param integer $money
+     *
+     * @return User
+     */
+    public function setMoney($money)
+    {
+        $this->money = $money;
+
+        return $this;
+    }
+
+    /**
+     * Get money
+     *
+     * @return integer
+     */
+    public function getMoney()
+    {
+        return $this->money;
     }
 }
