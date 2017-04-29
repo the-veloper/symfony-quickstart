@@ -1,6 +1,13 @@
-/**
- * Created by gopsan on 4/29/17.
- */
+function updateCart() {
+    $.ajax({
+                method: "GET",
+                url: "/app_dev.php/cart/count",
+                success: function (response) {
+                   $('a[href="/app_dev.php/cart/view"]').html('Cart (' + response['total_count'] + ')');
+                }
+});
+}
+ 
 $(document).ready(function () {
-console.log('dsa');
+updateCart();
 });
