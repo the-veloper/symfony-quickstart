@@ -15,7 +15,10 @@
             <div class="row item-list {% if loop.index is odd %}odd-item{% endif %}">
                 <p class="description">{{ user.username }}</p>
                 <p class="money">{{ user.money }}</p>
-                <p class="role">{{ user.username }}</p>
+                <p class="role">{% for role in user.roles %}
+                        {{ role }}
+                    {% endfor %}
+                </p>
                 <button type="button" data-action="ban" data-method="username" data-id="{{ user.id }}" value="Ban {{ user.username }} by Username"/>
                 <button type="button" data-action="promote" data-method="" data-id="{{ user.id }}" value="Promote to"/>
                 <button type="button" data-action="ban" data-method="ip" data-id="{{ user.id }}" value="Ban {{ user.username }} by IP"/>
