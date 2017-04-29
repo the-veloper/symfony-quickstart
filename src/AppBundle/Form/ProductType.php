@@ -18,7 +18,7 @@ class ProductType extends AbstractType
           ->add('description')
           ->add('price')
           ->add('in_stock')
-          ->add('imageFile')
+          ->add('imageFile', 'file')
           ->add('categoryId')
         ;
     }
