@@ -9,7 +9,7 @@
         {# table body #}
         {% for article in pagination %}
             <tr {% if loop.index is odd %}class="color"{% endif %}>
-                <td><img src="{{ vich_uploader_asset(article, 'image') }}" alt="{{ article.name }}" /></td>
+                <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.name }}" /></td>
                 <td>{{ article.price }}</td>
                 <td>{{ article.name }}</td>
                 <td>{{ article.description }}</td>
