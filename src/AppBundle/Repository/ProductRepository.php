@@ -21,10 +21,10 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb;
     }
-    public function findByCategory($id)
+    public function findByCategory($name)
     {
         $qb = $this->createQueryBuilder('p');
-        $qb->where('p.categoryId', $id);
+        $qb->where('p.categoryName', $name);
         $qb->orderBy('p.sticky', 'ASC');
         $qb->orderBy('p.weight', 'ASC');
         $qb->orderBy('p.updatedAt', 'DESC');
