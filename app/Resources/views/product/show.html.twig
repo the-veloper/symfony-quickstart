@@ -69,7 +69,7 @@
             <div class="col-md-12">
                 <p>Price: {{ product.price }}$</p>
                 <p>Remaining: {{ product.instock }}</p>
-                <button data-id="{{ product.id }}" id="add_to_card" class="btn btn-success">Add to cart</button>
+                <button data-id="{{ product.id }}" data-path="{{ path('card_add') }}" id="add_to_card" class="btn btn-success">Add to cart</button>
                 <a href="{{ path('product_buy', { 'id': product.id }) }}" class="btn btn-warning">Buy</a>
             </div>
     </div>

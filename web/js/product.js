@@ -6,7 +6,7 @@ $(document).ready(function () {
                 product_id: $(this).data('id'),
                 product_qty: 1
             },
-            url: "{{ path('cart_add') }}",
+            url: $(this).data('path'),
             success: function (response) {
                 console.log(response);
             }
