@@ -6,6 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ProductType extends AbstractType
 {
@@ -28,7 +29,9 @@ class ProductType extends AbstractType
             'label' => false,
             'required' => false,
           ])
-          ->add('categoryId')
+          ->add('categoryName', TextType::class, array(
+            'attr' => array('class' => 'autocomplete'),
+          ))
         ;
     }
 

@@ -73,11 +73,11 @@ class Product
     private $updatedAt;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="category_id", type="integer")
+     * @ORM\Column(name="category_name", type="string")
      */
-    private $categoryId;
+    private $categoryName;
 
     /**
      * @var int

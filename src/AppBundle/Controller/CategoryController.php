@@ -30,6 +30,31 @@ class CategoryController extends Controller
           'categories' => $categories,
         ));
     }
+
+    /**
+     * Autocomplete Category entities.
+     *
+     * @Route("/autocomplete", name="category_autocomplete")
+     * @Method("GET")
+     */
+    public function autocompleteAction(Request $request)
+    {
+        $term = trim(strip_tags($request->get('term')));
+        $names = array();
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('AppBundle:Category')->createQueryBuilder('c')
+          ->where('c.name LIKE :name')
+          ->setParameter('name', '%'.$term.'%')
+          ->getQuery()
+          ->getResult();
+        foreach ($entities as $entity)
+        {
+            $names[] = $entity->getName();
+        }
+
+        $response = new JsonResponse($names);
+        return $response;
+    }
     /**
      * Creates a new Category entity.
      *
