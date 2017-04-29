@@ -5,6 +5,7 @@ namespace Shop\UserBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="app_user")
@@ -41,6 +42,13 @@ class User extends BaseUser
      */
     private $money = 700;
 
+    /**
+     * @var String
+     *
+     * @ORM\Column(type="string", name="ipaddr")
+     */
+    protected $ipAddress;
+
     public function __construct()
     {
         parent::__construct();
@@ -49,6 +57,7 @@ class User extends BaseUser
         $this->enabled      = true; //change default
         $this->money        = 700;
         $this->updatedAt    = $this->createdAt;
+        $this->ipAddress    = '0.0.0.0';
     }
 
     public function setCreatedAt()
@@ -116,5 +125,29 @@ class User extends BaseUser
     public function getMoney()
     {
         return $this->money;
+    }
+
+    /**
+     * Set ipAddress
+     *
+     * @param string $ipAddress
+     *
+     * @return User
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->ipAddress = $ipAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get ipAddress
+     *
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->ipAddress;
     }
 }

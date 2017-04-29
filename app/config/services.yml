@@ -3,3 +3,7 @@ services:
         class: Twig_Extensions_Extension_Date
         tags:
             - { name: twig.extension }
+    login_listener:
+        class: 'Shop\UserBundle\EventListener\LoginListener'
+        tags:
+            - { name: kernel.event_subscriber }
