@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class AdminController extends Controller
 {
     /**
-     * Add to cart.
+     * List users
      *
      * @Route("/users", name="admin_list_users")
      * @Method("GET")
@@ -44,5 +44,40 @@ class AdminController extends Controller
           'admin/users.html.twig',
           array('pagination' => $pagination)
         );
+    }
+
+    /**
+     * Ban user.
+     *
+     * @Route("/user/ban/{id}", name="user_ban_username")
+     * @Method("GET")
+     */
+    public function banUserAction($id) {
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($id);
+        $user->addRole('ROLE_BANNED');
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse(['success' => true, 'new_text' => 'Unban ' . $user->getUsername()]);
+    }
+    /**
+     * Remove user
+     *
+     * @Route("/user/delete/{id}", name="user_delete")
+     * @Method("GET")
+     */
+    public function removeAction($id) {
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($id);
+        $user->addRole('ROLE_BANNED');
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        return new JsonResponse(['success' => true, 'new_text' => '', 'delete' => 'item-' . $id]);
     }
 }
