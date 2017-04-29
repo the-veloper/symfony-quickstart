@@ -11,13 +11,7 @@ $(function() {
                 async: true,
                 cache: true,
                 success: function(data){
-                    var suggestions = [];
-                    //process response
-                    $.each(data, function(i, val){
-                        suggestions.push({"name": val.value});
-                    });
-                    //pass array to callback
-                    add(suggestions);
+                    add(data);
                 }
             });
         }
