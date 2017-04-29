@@ -49,6 +49,16 @@ class User extends BaseUser
      */
     protected $ipAddress;
 
+    /**
+     * Many Users have Many Products.
+     * @ORM\ManyToMany(targetEntity="Product")
+     * @ORM\JoinTable(name="user_products",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")}
+     *      )
+     */
+    private $products;
+
     public function __construct()
     {
         parent::__construct();
@@ -58,6 +68,7 @@ class User extends BaseUser
         $this->money        = 700;
         $this->updatedAt    = $this->createdAt;
         $this->ipAddress    = '0.0.0.0';
+        $this->products     = new ArrayCollection();
     }
 
     public function setCreatedAt()
@@ -149,5 +160,39 @@ class User extends BaseUser
     public function getIpAddress()
     {
         return $this->ipAddress;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \Shop\UserBundle\Entity\Product $product
+     *
+     * @return User
+     */
+    public function addProduct(\Shop\UserBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \Shop\UserBundle\Entity\Product $product
+     */
+    public function removeProduct(\Shop\UserBundle\Entity\Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }
