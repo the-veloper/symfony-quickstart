@@ -15,6 +15,8 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         $qb->where('p.in_stock > 0');
+        $qb->orderBy('p.sticky', 'ASC');
+        $qb->orderBy('p.weight', 'DESC');
 
         return $qb;
     }
