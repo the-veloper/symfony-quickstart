@@ -21,10 +21,9 @@
                         {{ role }}
                     {% endfor %}
                 </p>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_username') }}" data-id="{{ user.id }}">Ban {{ user.username }}</button>
-                <button class="js-processed-actions" type="button" data-id="{{ user.id }}">Promote to"</button>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_ip') }}" data-id="{{ user.id }}">Ban {{ user.username }} by IP</button>
-                <button class="js-processed-actions" type="button" data-path="{{ path('user_delete') }}" data-id="{{ user.id }}">Delete Account</button>
+                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_username', { 'id': user.id }) }}">Ban {{ user.username }}</button>
+                <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_ip', { 'id': user.id }) }}">Ban {{ user.username }} by IP</button>
+                <button class="js-processed-actions" type="button" data-path="{{ path('user_delete', { 'id': user.id }) }}">Delete Account</button>
             </div>
         </div>
     {% endfor %}
