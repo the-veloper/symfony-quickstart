@@ -1,4 +1,7 @@
 {% extends 'base.html.twig' %}
+{% block javascripts_begin %}
+<script src="{{ asset('js/product.js') }}"></script>
+{% endblock %}
 {% block title %}{{ product.name }}{% endblock %}
 {% block body %}
     <a href="{{ path('app_index_index') }}"> &laquo;Back </a>

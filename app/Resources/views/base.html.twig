@@ -32,6 +32,10 @@
 
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    {% block javascripts_begin %}
+
+    {% endblock %}
 </head>
 
 <body>
@@ -98,7 +102,7 @@
 </div> <!-- /container -->
 
 
-{% block javascripts %}
+{% block javascripts_end %}
 
 {% endblock %}
 
