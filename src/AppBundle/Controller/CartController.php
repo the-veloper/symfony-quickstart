@@ -106,7 +106,7 @@ class CartController extends Controller
               ['success' => false, 'new_total' => $current_total]
             );
         }
-        if($product_qty < $products[$product_id]['qty']) {
+        if(isset($products[$product_id]) && $product_qty < $products[$product_id]['qty']) {
             if (isset($products[$product_id])) {
 
                 if ($product_qty == $products[$product_id]['qty']) {
