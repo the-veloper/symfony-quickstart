@@ -2,7 +2,20 @@
 
 {% block body %}
     <h1>Category</h1>
-
+    <table>
+    products:
+    {% for product in products %}
+        <tr>
+            product.id
+        </tr>
+        <tr>
+            product.name
+        </tr>
+        <tr>
+            product.description
+        </tr>
+    {% endfor %}
+    </table>
     <table>
         <tbody>
         <tr>
