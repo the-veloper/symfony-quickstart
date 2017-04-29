@@ -71,14 +71,17 @@
         <li>
             <a href="{{ path('product_buy', { 'id': product.id }) }}">Buy</a>
         </li>
+        {% if is_granted('ROLE_EDITOR') %}
         <li>
             <a href="{{ path('product_edit', { 'id': product.id }) }}" class="btn btn-warning">Edit</a>
         </li>
+
         <li>
             {{ form_start(delete_form) }}
             <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
+        {% endif %}
     </ul>
 
     <script>
