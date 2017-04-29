@@ -88,7 +88,7 @@ class CategoryController extends Controller
         $deleteForm = $this->createDeleteForm($category);
         $products = $this->getDoctrine()
           ->getRepository('AppBundle:Product')
-          ->findByCategory($category->getId());
+          ->findByCategory($category->getTitle());
         return $this->render('category/show.html.twig', array(
           'category' => $category,
           'products' => $products,
