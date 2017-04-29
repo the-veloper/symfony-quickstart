@@ -379,4 +379,28 @@ class Product
     {
         return $this->sticky;
     }
+
+    /**
+     * Set categoryName
+     *
+     * @param string $categoryName
+     *
+     * @return Product
+     */
+    public function setCategoryName($categoryName)
+    {
+        $this->categoryName = $categoryName;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryName
+     *
+     * @return string
+     */
+    public function getCategoryName()
+    {
+        return $this->categoryName;
+    }
 }
