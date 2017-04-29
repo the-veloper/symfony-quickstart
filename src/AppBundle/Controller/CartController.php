@@ -106,23 +106,8 @@ class CartController extends Controller
               ['success' => false, 'new_total' => $current_total]
             );
         }
-        if(isset($products[$product_id]) && $product_qty < $products[$product_id]['qty']) {
-            if (isset($products[$product_id])) {
-
-                if ($product_qty == $products[$product_id]['qty']) {
-                    $current_total -= $products[$product_id]['product']->getPrice(
-                      ) * $product_qty;
-                    unset($products[$product_id]);
-                } else {
-                    $products[$product_id]['qty'] -= $product_qty;
-                    $current_total -= $products[$product_id]['product']->getPrice(
-                      ) * $product_qty;
-                }
-            }
-        } else {
-            $request->request->set('product_qty', $product_qty - $products[$product_id]['qty']);
-            return $this->addToCartAction($request);
-        }
+        $current_total += ($product_qty-$products[$product_id]['qty'])*$products[$product_id]['product']->getPrice();
+        $products[$product_id]['qty'] = $product_qty;
 
         $session->set('current_total', $current_total);
         $session->set('products', $products);
