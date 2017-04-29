@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $names = array();
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('AppBundle:Category')->createQueryBuilder('c')
-          ->where('c.name LIKE :name')
+          ->where('c.title LIKE :name')
           ->setParameter('name', '%'.$term.'%')
           ->getQuery()
           ->getResult();
