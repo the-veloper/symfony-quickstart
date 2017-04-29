@@ -29,8 +29,7 @@ class CartController extends Controller
      */
     public function addToCartAction(Request $request)
     {
-        $session = new Session();
-        $session->start();
+        $session = $request->getSession();
         $current_total = $session->get('current_total', 0);
         $product_id = $request->query->get('product_id');
         $product_qty = $request->query->get('product_qty');
