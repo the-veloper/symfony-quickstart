@@ -14,7 +14,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('p');
 
-        $qb->where('p.in_stock = 1');
+        $qb->where('p.in_stock > 0');
 
         return $qb;
     }
