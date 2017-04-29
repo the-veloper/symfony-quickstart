@@ -5,6 +5,7 @@ namespace Shop\UserBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class LoginController extends Controller
 {
