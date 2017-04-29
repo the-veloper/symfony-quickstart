@@ -14,6 +14,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 /**
  * Cart controller.
@@ -62,6 +64,21 @@ class AdminController extends Controller
         $em->flush();
 
         return new JsonResponse(['success' => true, 'new_text' => 'Unban ' . $user->getUsername()]);
+    }
+
+    /**
+     * Ban user ip.
+     *
+     * @Route("/user/ban/{id}/ip", name="user_ban_ip")
+     * @Method("GET")
+     */
+    public function banUserIPAction($id) {
+        $fs = new Filesystem();
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($id);
+        $fs->dumpFile('banned.txt', $user->getIpaddress());
+        return new JsonResponse(['success' => true, 'new_text' => 'Unban ' . $user->getUsername() . '\'s IP']);
     }
     /**
      * Remove user
