@@ -106,14 +106,24 @@ class CartController extends Controller
               ['success' => false, 'new_total' => $current_total]
             );
         }
-        $current_total += ($product_qty-$products[$product_id]['qty'])*$products[$product_id]['product']->getPrice();
-        $products[$product_id]['qty'] = $product_qty;
+        if(isset($products[$product_id])) {
+            $product = $this->getDoctrine()
+              ->getRepository('AppBundle:Product')
+              ->find($product_id);
+            $current_total += ($product_qty - $products[$product_id]['qty']) * $product->getPrice(
+              );
+            $products[$product_id]['qty'] = $product_qty;
 
-        $session->set('current_total', $current_total);
-        $session->set('products', $products);
+            $session->set('current_total', $current_total);
+            $session->set('products', $products);
 
-        return new JsonResponse(
-          ['success' => true, 'new_total' => $current_total]
-        );
+            return new JsonResponse(
+              ['success' => true, 'new_total' => $current_total]
+            );
+        } else {
+            return new JsonResponse(
+              ['success' => false, 'new_total' => $current_total]
+            );
+        }
     }
 }
