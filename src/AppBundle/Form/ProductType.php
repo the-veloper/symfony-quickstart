@@ -5,6 +5,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProductType extends AbstractType
 {
@@ -16,7 +17,7 @@ class ProductType extends AbstractType
     {
         $builder
           ->add('name')
-          ->add('description',TextareaType::class, array(
+          ->add('description', TextareaType::class, array(
             'attr' => array('class' => 'product-edit-description'),
           ))
           ->add('price')
