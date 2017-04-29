@@ -23,6 +23,7 @@
                 </p>
                 <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_username', { 'id': user.id }) }}">Ban {{ user.username }}</button>
                 <button class="js-processed-actions" type="button" data-path="{{ path('user_ban_ip', { 'id': user.id }) }}">Ban {{ user.username }} by IP</button>
+                <button class="js-processed-actions" type="button" data-path="{{ path('user_edit', { 'id': user.id }) }}">Edit Account</button>
                 <button class="js-processed-actions" type="button" data-path="{{ path('user_delete', { 'id': user.id }) }}">Delete Account</button>
             </div>
         </div>
