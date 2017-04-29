@@ -121,7 +121,7 @@ class ProductController extends Controller
     /**
      * Deletes a Product entity.
      *
-     * @Route("/{id}", name="product_buy")
+     * @Route("/{id}/buy", name="product_buy")
      * @Method("GET")
      */
     public function buyAction(Request $request, Product $product)
