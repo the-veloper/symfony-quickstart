@@ -3,7 +3,7 @@ $( ".autocomplete" ).autocomplete({
     scrollHeight: 220,
     source: function(req, add){
         $.ajax({
-            url:Routing.generate('category_autocomplete'),
+            url:$( ".autocomplete" ).data('source'),
             type:"get",
             dataType: 'json',
             data: 'term='+req.term,
