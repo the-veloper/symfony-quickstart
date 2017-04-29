@@ -7,13 +7,14 @@
         {% for item in products %}
 <table>
 <tr>
-                <td><img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ article.name }}" /></td>
+                <td><img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}" /></td>
                 <td>{{ item.product.price }}</td>
                 <td>{{ item.product.name }}</td>
                 <td>{{ item.product.description }}</td>
                 <td>Broika: {{ item.qty }}</td>
             </tr>
 </table>
+            total: {{ total }}
         {% endfor %}
     </div>
 {% endblock %}

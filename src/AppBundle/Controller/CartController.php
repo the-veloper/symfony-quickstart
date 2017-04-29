@@ -79,6 +79,7 @@ class CartController extends Controller
           'cart/view.html.twig',
           array(
             'products' => $products_renderable,
+            'total' => $session->get('current_total', 0),
           )
         );
     }
