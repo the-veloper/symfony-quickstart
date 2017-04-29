@@ -16,7 +16,9 @@ class ProductType extends AbstractType
     {
         $builder
           ->add('name')
-          ->add('description')
+          ->add('description',TextareaType::class, array(
+            'attr' => array('class' => 'product-edit-description'),
+          ))
           ->add('price')
           ->add('in_stock')
           ->add('imageFile', FileType::class, [
