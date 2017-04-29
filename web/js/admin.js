@@ -4,7 +4,7 @@ $(document).ready(function () {
             method: "GET",
             url: $(this).data('path'),
             success: function (response) {
-                $(this).html(response.new_text);
+                $(this).text(response.new_text);
                 if(response.delete) {
                     $('.' + response.delete).hide('slow', function(){ $('.' + response.delete).remove(); });
                 }
