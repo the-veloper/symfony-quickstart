@@ -8,9 +8,8 @@ $(function() {
         source: function( request, response ) {
             $.ajax({
                 url: $( ".autocomplete" ).data('source'),
-                dataType: "jsonp",
                 data: {
-                    q: request.term
+                    term: request.term
                 },
                 success: function( data ) {
                     response( data );
