@@ -130,4 +130,18 @@ class CartController extends Controller
             );
         }
     }
+    /**
+     * Count cart.
+     *
+     * @Route("/count", name="cart_count")
+     * @Method("GET")
+     */
+    public function countAction(Request $request)
+    {
+        $session = $request->getSession();
+        $current_total = $session->get('current_total', 0);
+        $products = $session->get('products', []);
+
+        return new JsonResponse(['success' => true, 'count' => count($products), 'total' => $current_total]);
+    }
 }
