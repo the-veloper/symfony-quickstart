@@ -29,7 +29,7 @@ class UserController extends Controller
      * @Route("/{id}", name="user_view")
      * @Method("GET")
      */
-    public function showAction($user_id)
+    public function showAction($id)
     {
         $user = $this->getDoctrine()
           ->getRepository('UserBundle:User')
@@ -49,7 +49,7 @@ class UserController extends Controller
      * @Route("/{id}/edit", name="user_edit")
      * @Method("GET")
      */
-    public function editAction($user_id)
+    public function editAction($id)
     {
         $user = $this->getDoctrine()
           ->getRepository('UserBundle:User')
