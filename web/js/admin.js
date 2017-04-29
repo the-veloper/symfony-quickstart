@@ -8,6 +8,9 @@ $(document).ready(function () {
                 if(response.delete) {
                     $('.' + response.delete).hide('slow', function(){ $('.' + response.delete).remove(); });
                 }
+                if(response.redirect) {
+                    window.location = response.redirect;
+                }
             }
         });
     });

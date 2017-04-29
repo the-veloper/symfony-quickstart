@@ -72,7 +72,8 @@ class AdminController extends Controller
      * @Route("/user/ban/{id}/ip", name="user_ban_ip")
      * @Method("GET")
      */
-    public function banUserIPAction($id) {
+    public function banUserIPAction($id)
+    {
         $fs = new Filesystem();
         $user = $this->getDoctrine()
           ->getRepository('UserBundle:User')
@@ -80,13 +81,15 @@ class AdminController extends Controller
         $fs->dumpFile('banned.txt', $user->getIpaddress());
         return new JsonResponse(['success' => true, 'new_text' => 'Unban ' . $user->getUsername() . '\'s IP']);
     }
+
     /**
      * Remove user
      *
      * @Route("/user/delete/{id}", name="user_delete")
      * @Method("GET")
      */
-    public function removeAction($id) {
+    public function removeAction($id)
+    {
         $user = $this->getDoctrine()
           ->getRepository('UserBundle:User')
           ->find($id);
@@ -96,5 +99,16 @@ class AdminController extends Controller
         $em->flush();
 
         return new JsonResponse(['success' => true, 'new_text' => '', 'delete' => 'item-' . $id]);
+    }
+
+    /**
+     * Edit user
+     *
+     * @Route("/user/{id}/editred", name="user_edit_red")
+     * @Method("GET")
+     */
+    public function redirecToEditAction($id)
+    {
+        return new JsonResponse(['success' => true, 'new_text' => '', 'redirect' => $this->generateUrl('user_edit', ['id' => $id])]);
     }
 }
