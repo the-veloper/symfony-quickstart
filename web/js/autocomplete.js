@@ -5,7 +5,7 @@ $(function() {
     }
 
     $( ".autocomplete" ).autocomplete({
-        source: this.data('source'),
+        source: $( ".autocomplete" ).data('source'),
         minLength: 2,
         select: function( event, ui ) {
             log( ui.item ?
