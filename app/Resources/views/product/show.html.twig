@@ -41,6 +41,12 @@
             <a href="{{ path('app_index_index') }}">Back to the list</a>
         </li>
         <li>
+            <a href="{{ path('product_add_card', { 'id': product.id }) }}">Add to card</a>
+        </li>
+        <li>
+            <a href="{{ path('product_buy', { 'id': product.id }) }}">Buy</a>
+        </li>
+        <li>
             <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
         </li>
         <li>
