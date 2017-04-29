@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block title %}Admin | Users{% endblock %}
 
-
+{% block javascripts_begin %}
+    <script src="{{ asset('js/admin.js') }}"></script>
+{% endblock %}
 {% block body %}
 <div class="count">
     {{ pagination.getTotalItemCount }}
