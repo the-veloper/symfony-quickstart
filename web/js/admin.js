@@ -9,7 +9,7 @@ $(document).ready(function () {
                     $('.' + response.delete).hide('slow', function(){ $('.' + response.delete).remove(); });
                 }
                 if(response.redirect) {
-                    window.location = response.redirect;
+                    window.location.href = response.redirect;
                 }
             }
         });
