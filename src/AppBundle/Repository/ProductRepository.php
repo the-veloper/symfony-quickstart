@@ -16,7 +16,8 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 
         $qb->where('p.in_stock > 0');
         $qb->orderBy('p.sticky', 'ASC');
-        $qb->orderBy('p.weight', 'DESC');
+        $qb->orderBy('p.weight', 'ASC');
+        $qb->orderBy('p.updatedAt', 'DESC');
 
         return $qb;
     }
