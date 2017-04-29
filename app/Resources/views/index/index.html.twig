@@ -16,17 +16,32 @@
     <div class="count">
         {{ pagination.getTotalItemCount }}
     </div>
-    <table>
-        {# table body #}
+
+
+    <div class="items">
         {% for article in pagination %}
-            <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <!--<tr {% if loop.index is odd %}class="color"{% endif %}>
                 <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.name }}" /></td>
                 <td>{{ article.price }}</td>
                 <td>{{ article.name }}</td>
                 <td>{{ article.description }}</td>
-            </tr>
+            </tr>-->
+
+            <div class="items">
+                <div class="row item-list {% if loop.index is odd %}odd-item{% endif %}">
+                    <div class="col-xs-5 col-md-4 col-lg-3">
+                        <a href="{{ path('product_buy', { 'id': article.id }) }}"><div class="thumbnail-p" style="background: url('{{ vich_uploader_asset(article, 'imageFile') }}') 50% 50% no-repeat; width: 150px; height: 150px ;"></div></a>
+                    </div>
+                    <div class="col-xs-5 col-lg-9">
+                        <a href="{{ path('product_buy', { 'id': article.id }) }}"><p class="title">{{ article.name }}</p></a>
+                        <p class="description">{{ article.description }}</p>
+                        Price: {{ article.price }}$
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </table>
+    </div>
+
     {# display navigation #}
     <div class="navigation">
         {{ knp_pagination_render(pagination) }}
