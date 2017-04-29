@@ -49,7 +49,7 @@ class CategoryController extends Controller
           ->getResult();
         foreach ($entities as $entity)
         {
-            $names[] = $entity->getName();
+            $names[] = $entity->getTitle();
         }
 
         $response = new JsonResponse($names);
