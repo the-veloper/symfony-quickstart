@@ -31,8 +31,8 @@ class CartController extends Controller
     {
         $session = $request->getSession();
         $current_total = $session->get('current_total', 0);
-        $product_id = $request->query->get('product_id');
-        $product_qty = $request->query->get('product_qty');
+        $product_id = $request->request->get('product_id');
+        $product_qty = $request->request->get('product_qty');
         $product = $this->getDoctrine()
           ->getRepository('AppBundle:Product')
           ->find($product_id);
