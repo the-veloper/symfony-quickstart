@@ -50,7 +50,7 @@ class CategoryController extends Controller
           ->getResult();
         foreach ($entities as $entity)
         {
-            array_push($names, array('label'=>$entity->getTitle(), 'value'=>$entity->getTitle());
+            array_push($names, array('label'=>$entity->getTitle(), 'value'=>$entity->getTitle()));
         }
         return new JsonResponse($names,200);
 
