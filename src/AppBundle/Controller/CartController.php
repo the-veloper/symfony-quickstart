@@ -112,7 +112,11 @@ class CartController extends Controller
               ->find($product_id);
             $current_total += ($product_qty - $products[$product_id]) * $product->getPrice(
               );
-            $products[$product_id] = $product_qty;
+            if($product_qty != 0) {
+                $products[$product_id] = $product_qty;
+            } else {
+                unset($products[$product_id]);
+            }
 
             $session->set('current_total', $current_total);
             $session->set('products', $products);
