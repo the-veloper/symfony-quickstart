@@ -43,6 +43,13 @@ class Product
      * @var File
      */
     private $imageFile;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="category_id", type="integer")
+     */
+    private $categoryId;
 
     /**
      * Get id
@@ -168,5 +175,29 @@ class Product
         $this->imageName = $imageName;
 
         return $this;
+    }
+
+    /**
+     * Set categoryId
+     *
+     * @param integer $categoryId
+     *
+     * @return Product
+     */
+    public function setCategoryId($categoryId)
+    {
+        $this->categoryId = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryId
+     *
+     * @return integer
+     */
+    public function getCategoryId()
+    {
+        return $this->categoryId;
     }
 }
