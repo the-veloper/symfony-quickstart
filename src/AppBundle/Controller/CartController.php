@@ -120,15 +120,25 @@ class CartController extends Controller
 
             $session->set('current_total', $current_total);
             $session->set('products', $products);
+            $ret = true;
 
-            return new JsonResponse(
-              ['success' => true, 'new_total' => $current_total]
-            );
         } else {
-            return new JsonResponse(
-              ['success' => false, 'new_total' => $current_total]
-            );
+            $ret = false;
         }
+        $count = 0;
+        if (!empty($products)) {
+            foreach ($products as $qty) {
+                $count += $qty;
+            }
+        }
+
+        return new JsonResponse(
+          [
+            'success' => $ret,
+            'new_total' => $current_total,
+            'total_count' => $count,
+          ]
+        );
     }
     /**
      * Count cart.
