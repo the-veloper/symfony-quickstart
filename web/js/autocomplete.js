@@ -14,7 +14,7 @@ $(function() {
                     var suggestions = [];
                     //process response
                     $.each(data, function(i, val){
-                        suggestions.push({"name": val.categoryName});
+                        suggestions.push({"name": val.value});
                     });
                     //pass array to callback
                     add(suggestions);
