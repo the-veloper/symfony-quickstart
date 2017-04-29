@@ -17,6 +17,10 @@
             <td>{{ product.name }}</td>
         </tr>
         <tr>
+            <th>Category:</th>
+            <td>Plod i zelen 4uk</td>
+        </tr>
+          <tr>
             <th>Description</th>
             <td>{{ product.description }}</td>
         </tr>
@@ -44,6 +48,11 @@
             <img src="{{ vich_uploader_asset(product, 'imageFile') }}" />
         </div>
         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+            <div class="row">
+                <p>
+                    <b>Category:</b> {{ product.categoryid }}
+                </p>
+            </div>
             <div class="row">
                 <p>
                     <b>Description:</b><br>
