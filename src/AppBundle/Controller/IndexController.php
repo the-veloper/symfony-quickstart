@@ -18,13 +18,16 @@ class IndexController extends Controller
         $products = $this->getDoctrine()
           ->getRepository('AppBundle:Product')
           ->findAllInStock();
+        $categories = $this->getDoctrine()
+          ->getRepository('AppBundle:Category')
+          ->findAll();
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
           $products, /* query NOT result */
           $request->query->getInt('page', 1)/*page number*/,
           10    /*limit per page*/
         );
-        return $this->render(':index:index.html.twig', array('pagination' => $pagination));
+        return $this->render(':index:index.html.twig', array('pagination' => $pagination, 'categories' => $categories));
     }
 
     /**

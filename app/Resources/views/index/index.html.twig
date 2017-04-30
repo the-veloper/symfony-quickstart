@@ -32,11 +32,11 @@
 {% block sidebar %}
     <div class="listing-cateogries">
         <h3>Categories</h3>
-        <a href="#"><p>Category 1</p></a>
-        <a href="#"><p>Category 2</p></a>
-        <a href="#"><p>Category 3</p></a>
-        <a href="#"><p>Category 4</p></a>
+        {% for category in categories %}
+        <a href="#"><p>{{ category }}</p></a>
+        {% endfor %}
         <hr>
+
         bara bara sto 4adara
     </div>
 {% endblock %}
