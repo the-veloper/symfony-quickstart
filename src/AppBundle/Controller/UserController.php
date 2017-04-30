@@ -44,6 +44,24 @@ class UserController extends Controller
     }
 
     /**
+     * view inventoty users
+     *
+     * @Route("/{id}/inventory", name="user_view_inventory")
+     * @Method("GET")
+     */
+    public function inventoryAction(Request $request, $id)
+    {
+        $user = $this->getDoctrine()
+          ->getRepository('UserBundle:User')
+          ->find($id);
+        if (!is_object($user) || !$user instanceof UserInterface || $user->getId() != $id || $user->hasRole('ROLE_EDITOR')) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+
+        return new JsonResponse($user->getProducts());
+    }
+
+    /**
      * Edit user
      *
      * @Route("/{id}/edit", name="user_edit")
